@@ -1,0 +1,31 @@
+功能说明：
+该项目可以maven打成一个jar包供其他maven项目引用.别的项目引用了该项目.在其应用启动的过程中,会做一些操作.
+该项目写的功能主要是异步去调用http请求DevOps系统,将当前应用注册到自动化运维平台,用以方便应用与服务器的管理和应用的健康检查.
+
+在其他项目,引用之后要有的配置:
+#应用所在服务器的内网ip(必传)
+request.devops.param.i_ip=192.168.10.155
+#健康检查地址，要求：带ip地址，不要填域名(必传)
+request.devops.param.health_path=192.168.10.155:8080/test/test.html
+#应用名称，应用名称和实例id用来确认应用的唯一性(必传)
+request.devops.param.app_name=test
+#应用的实例id，如果应用采用负载均衡部署多台服务器，则每台服务器都要求有唯一的实例id(必传)
+request.devops.param.instance_id=test001
+#部署路径，应用部署在服务器的路径(必传)
+request.devops.param.deploy_path=/data/test/
+#访问端口，访问应用的端口(必传)
+request.devops.param.app_port=8080
+#发布git的版本号
+request.devops.param.commit_id=012
+#发布者的名字
+request.devops.param.author=guo
+#创建时间，格式为 YYYY-MM-DDThh:mm:ssZ(暂时设成了当前时间)
+request.devops.param.create_time=2018-05-11T12:59:00+08:00
+#最后启动的时间，格式为 YYYY-MM-DDThh:mm:ssZ(暂时设成了当前时间)
+request.devops.param.start_time=2018-05-11T12:59:00+08:00
+#对应用的描述
+request.devops.param.describe=test
+#是否启动此功能(项目启动发送http请求DevOps系统,不配或者不为true则不会启动)
+request.devops.param.enabled=true
+
+注:该配置也可以配置到Apollo里
