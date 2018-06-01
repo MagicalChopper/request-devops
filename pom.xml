@@ -14,7 +14,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.2.RELEASE</version>
+		<version>1.5.7.RELEASE</version>
 		<relativePath/>
 	</parent>
 
@@ -74,14 +74,15 @@
 		<repository>
 			<id>repo</id>
 			<name>User Project Releases</name>
-			<url>http://192.168.1.204:8081/nexus/content/repositories/releases</url>
+			<!--<url>http://192.168.1.204:8081/nexus/content/repositories/releases</url>-->
+			<url>http://ops.keking.cn:8081/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>repo</id>
 			<name>User Project SNAPSHOTS</name>
-			<url>http://192.168.1.204:8081/nexus/content/repositories/snapshots</url>
+			<!--<url>http://192.168.1.204:8081/nexus/content/repositories/snapshots</url>-->
+			<url>http://ops.keking.cn:8081/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
-
 
 </project>

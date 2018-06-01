@@ -1,5 +1,6 @@
 package com.yudianbank.request.controller;
 
+import com.yudianbank.request.configuration.RequestDevOpsAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +16,7 @@ public class CheckSystemHealthyController {
     @RequestMapping("/isHealthy")
     @ResponseBody
     String isHealthy() {
-        return "request-devops project is running healthy.";
+        return RequestDevOpsAutoConfiguration.flag ? "request success." : "request fail.";
     }
 
 }

@@ -30,12 +30,9 @@ public class RequestDevOpsAutoConfiguration {
     //---------向DevOps系统发送http请求的地址-------------
     public static final String REQUEST_DEVOPS_URL = "http://devops.keking.cn:8000/asset/api/app-register/";
 
-    private String i_ip;
+    public static boolean flag = false;
 
-    //-----------------初始化默认本机ip-------------------
-    public RequestDevOpsAutoConfiguration() throws UnknownHostException {
-        i_ip = InetAddress.getLocalHost().getHostAddress();
-    }
+    private String i_ip;
 
     private String health_path ;
 
@@ -57,6 +54,10 @@ public class RequestDevOpsAutoConfiguration {
 
     private String describe;
 
+    //-----------------初始化默认本机ip-------------------
+    public RequestDevOpsAutoConfiguration() throws UnknownHostException {
+        i_ip = InetAddress.getLocalHost().getHostAddress();
+    }
 
     /**
      * 向DevOps系统发请求
@@ -69,11 +70,11 @@ public class RequestDevOpsAutoConfiguration {
         httpHeaders.setContentType(type);
         httpHeaders.add("Accept",MediaType.APPLICATION_JSON.toString());
         JSONObject jsonObject = (JSONObject) JSON.toJSON(obj);
-        HttpEntity<String> httpEntity = new HttpEntity<String>(jsonObject.toString(), httpHeaders);
-        logger.info("httpEntity:{}",httpEntity);
+        HttpEntity<String> httpEntity = new HttpEntity(jsonObject.toString(), httpHeaders);
         String result = null ;
         try{
             result = restTemplate.postForObject(REQUEST_DEVOPS_URL, httpEntity, String.class);
+            flag = true;
         }catch(RuntimeException e){
             logger.info("请求DevOps系统出错,请检查配置信息是否正确.{}",e.getMessage());
         }
