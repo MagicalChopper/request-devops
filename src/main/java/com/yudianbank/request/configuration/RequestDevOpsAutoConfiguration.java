@@ -28,7 +28,7 @@ public class RequestDevOpsAutoConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(RequestDevOpsAutoConfiguration.class);
 
     //---------向DevOps系统发送http请求的地址-------------
-    public static final String REQUEST_DEVOPS_URL = "http://devops.keking.cn:8000/asset/api/app-register/";
+    public static final String REQUEST_DEVOPS_URL = "http://ops.keking.cn:8000/asset/api/app-register/";
 
     public static boolean flag = false;
 
